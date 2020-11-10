@@ -9,7 +9,7 @@
   //retrieve data from numbers that are clicked
   buttons.forEach(function(button){
     button.addEventListener('click', function(e){
-      if(screen.value==='Please Enter a Value'){
+      if(screen.value==='Please Enter a Value' || screen.value == 'Please Enter a Valid Number'){
         screen.value='';
       }
       let value = e.target.dataset.num;
@@ -20,6 +20,9 @@
   equal.addEventListener('click', function(e){
     if(screen.value === ''){
       screen.value = 'Please Enter a Value';
+    }
+    else if(isNaN(parseFloat(screen.value))){
+      screen.value = 'Please Enter a Valid Number';
     }
     else {
       let answer = eval(screen.value);
